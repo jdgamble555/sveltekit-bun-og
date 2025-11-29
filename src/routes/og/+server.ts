@@ -10,7 +10,7 @@ export const GET = (async ({ url }) => {
 
   const { width, height } = Object.fromEntries(url.searchParams);
 
-  return await ImageResponse(
+  return ImageResponse(
     ImageCard,
     {
       width: Number(width) || 1600,
