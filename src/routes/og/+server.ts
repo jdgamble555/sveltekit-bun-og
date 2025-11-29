@@ -15,10 +15,6 @@ export const GET = (async ({ url }) => {
     {
       width: Number(width) || 1600,
       height: Number(height) || 900
-    },
-    {
-      title: 'Custom OG Image',
-      website: 'Generated with SvelteKit and deployed to Vercel Bun!'
     }
   );
 
