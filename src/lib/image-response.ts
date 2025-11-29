@@ -1,4 +1,3 @@
-
 import type { Component } from 'svelte';
 import { render } from 'svelte/server';
 import { ImageResponse as OGImageResponse } from '@cf-wasm/og';
@@ -13,5 +12,6 @@ export const ImageResponse = async <T extends Record<string, unknown>>(
     props?: T
 ) => {
     const result = render(component as Component, { props });
-    return await OGImageResponse.async(html(result.html), options);
+    console.log('Svelte render result:', JSON.stringify(result));
+    return await OGImageResponse.async(html(result.body), options);
 };
