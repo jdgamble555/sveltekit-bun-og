@@ -4,6 +4,8 @@ import { ImageResponse as OGImageResponse } from '@vercel/og';
 import { htmlToOgStrict as html } from './parse-html';
 //import { html } from 'satori-html';
 
+// https://github.com/oven-sh/bun/pull/15047
+
 export const prerender = false;
 
 
@@ -13,7 +15,5 @@ export const ImageResponse = <T extends Record<string, unknown>>(
     props?: T
 ) => {
     const result = render(component as Component, { props });
-    const data = html(result.body);
-    //console.log(JSON.stringify(data, null, 2));
-    return new OGImageResponse(data, options);
+    return new OGImageResponse(html(result.body), options);
 };
