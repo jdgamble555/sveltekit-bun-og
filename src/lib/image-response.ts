@@ -13,5 +13,5 @@ export const ImageResponse = async <T extends Record<string, unknown>>(
     props?: T
 ) => {
     const result = render(component as Component, { props });
-    return await OGImageResponse.async(html(result.body), options);
+    return await OGImageResponse.async(html(result.html), options);
 };
